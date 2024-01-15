@@ -7,7 +7,7 @@ def main():
     
     while i <= input1:
         
-        if input1 >= 10 & input1 <=100:
+        if input1 > 9 and input1 < 101:
             mT.add(i)
             i += 1  
         else:
