@@ -16,11 +16,11 @@ def main():
         for b in abc:
             if a == b:
                 if a in lista:
-                    pass
+                    if lista[a] == 1: 
+                        i += 1
+                    lista[a] += 1
                 else:
-                    lista[0 + e].append("La lletra", a, " esta repetida: ",  i)
-                    i += 1
-                    e += 1
+                    lista[a] += 1
             else:
                 pass
                 
