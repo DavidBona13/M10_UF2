@@ -1,7 +1,7 @@
 def main():
     
     lista = []
-    mT = set()
+    mT = []
     i = 0
     
     while  i <= 10:
@@ -9,12 +9,12 @@ def main():
         lista.append(input1)
         i += 1
   
-    #lista.sort()
-    sorted(lista)
+    lista.sort()
 
     for a in lista:
-        mT.add(a)
-    
+        mT.append(a)
+        
+    mT = tuple(mT)
     print(mT)
     
 if __name__ == "__main__":
