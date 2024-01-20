@@ -1,34 +1,22 @@
 def main():
     
 
-    mT = set()
+    mT = []
     input1 = input("Si us plau, introdueixi una paraula: ")
     input2 = input("Si us plau, introdueixi una segona paraula: ")
     
-    mT.add(input1)
-    mT.add(input2)
-    abc = "abcdefghijklmnopqrstuvywxz"
-    lista = []
-    i = 1
-    e = 0
+    mT.append(input1)
+    mT.append(input2)
+    lista = {}
 
     for a in mT:
-        for b in abc:
-            if a == b:
-                if a in lista:
-                    if lista[a] == 1: 
-                        i += 1
-                    lista[a] += 1
-                else:
-                    lista[a] += 1
+        for b in a:
+            if b in lista:
+                lista[b] += 1
             else:
-                pass
-                
-                
-            #if mT.count(a) > 1:
+                lista[b] = 1
         
-        
-    
+    lista = tuple(lista.items())
     print(lista)
     
     

@@ -1,7 +1,7 @@
 def main():
     
     lista = []
-    mT = set()
+    mT = []
     a = True
     
     while  a:
@@ -13,12 +13,13 @@ def main():
         else:
             a = False
             
-    #lista.sort()
-    sorted(lista)
+    lista.sort()
+    #sorted(lista)
 
     for a in lista:
-        mT.add(a)
+        mT.append(a)
     
+    mT = tuple(mT)
     print("Programa finalitzat")
     print("Aquesta és la quantitat inserida:")
     print(mT)
