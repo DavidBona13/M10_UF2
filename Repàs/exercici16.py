@@ -1,7 +1,7 @@
 def main():
     
 
-    mT = set()
+    mT = []
     input1 = input("Si us plau, introdueixi una frase: ")
     
     vari = funcio1(input1, mT)
@@ -20,7 +20,8 @@ def funcio1(input1, mT):
         else:
             b += d      
             
-    mT.add(b)
+    mT.append(b)
+    mT = tuple(mT)
     
     return mT
     
