@@ -1,6 +1,6 @@
 def main():
          
-    input1 = int(input("Si us plau, introdueixi 10 números separats per un espais: "))
+    input1 = int(input("Si us plau, introdueix 1 número de l'1 al 10: "))
     i = 1
     a = []
     
