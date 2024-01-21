@@ -14,6 +14,7 @@ def main():
             a = False
             
     lista.sort()
+    #sorted(lista)
 
     for a in lista:
         mT.append(a)
