@@ -5,7 +5,7 @@ def main():
     
     print(h2)
     i = 0
-    #abcde = "abcdefghijklmnopqrstuvwyxz"
+    
     for caracter in enumerate(h2):
         if ' ' in caracter: 
             pass
@@ -15,7 +15,7 @@ def main():
     
     print("el número total de caràcters és: ", i)
     print("El primer caràcter és: ", h2[0])
-    print("L''ultim caràcter és: ", h2[-1])
+    print("L'últim caràcter és: ", h2[-1])
             
         
         
