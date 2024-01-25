@@ -4,11 +4,11 @@ def main():
     diccionari ={}
     while a:
         input1 = float(input("Si us plau, introdueix-hi el preu d'un producte sense l'IVA: "))
-        input2 = int(input("Si us plau, introdueix-hi el descompte volgut: "))
+        input2 = int(input("Si us plau, introdueix-hi el descompte desitjat: "))
         
         diccionari[input1] = input2
         b = True
-        
+
         while b:
             input3 = input("Vols continua introduint productes? ([si] o [no])")
             
