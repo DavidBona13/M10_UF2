@@ -1,8 +1,5 @@
-ftotal = input('Introdueix el preu de tot el carrito:')
 
-vari = amb_iva(ftotal, iva)
-print(vari)
-
-def amb_iva(ftotal,iva=21):
-    ftotal = ftotal * iva
+def amb_iva(ftotal,iva):
+    ivaTotal = iva / 100 + 1
+    ftotal = ftotal * ivaTotal
     return ftotal
