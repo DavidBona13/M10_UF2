@@ -16,11 +16,11 @@ def main():
             if e == 0:
                 print("Primer s'ha de crear la taula!\n ")
                 input2 = input("Vols crear-la? [si] o [no] ")
-                e += 1
                     
                 if input2 == "si":
                     variable1 = crearTaula()
                     b = False
+                    e += 1
                 elif input2 == "no":
                     print("Si no es crea la taula no és pot seguir! Adèu")
                     a = False
