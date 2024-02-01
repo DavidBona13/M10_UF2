@@ -9,7 +9,5 @@ def connexio():
         port='5432'
     )
 
-    connection = conn.cursor()
-    return connection
-
-    #print(connection)
+    #connection = conn.cursor()
+    return conn

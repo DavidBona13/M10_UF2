@@ -1,4 +1,5 @@
 from connection import connexio
+from Create_Table import crear
 def main():
     a = True
     b = True
@@ -6,6 +7,7 @@ def main():
     e = 0
     print("====================================================================================\n")
     print("Hola, benvingut al menú de consultes de la taula *** amb la base de dades PostgreSQL! ")
+    connection = connexio()
     
     while a:
         if i != 0:
@@ -18,14 +20,16 @@ def main():
                 input2 = input("Vols crear-la? [si] o [no] ")
                     
                 if input2 == "si":
-                    variable1 = crearTaula()
+                    variable1 = crear(connection)
                     b = False
+                    print("Taula 'SINTETITZADORS' creada correctament! ")
                     e += 1
                 elif input2 == "no":
                     print("Si no es crea la taula no és pot seguir! Adèu")
                     a = False
                     b = False
                 else:
+                    print("====================================================================================\n")
                     print("Has de seleccionar 'si' o 'no'" )
 
             
