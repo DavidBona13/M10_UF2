@@ -9,5 +9,5 @@ def connexio():
         host='localhost',
         port='5432'
     )
-    #Retornem el conn, el cursor el crearem en la clase main. 
+    #Retornem el conn, el cursor el crearem a la classe main. 
     return conn
