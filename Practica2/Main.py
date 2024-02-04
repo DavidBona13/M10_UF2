@@ -1,37 +1,96 @@
 from connection import connexio
-from Create_Table import crear
+from Create_Table import crearTaula
+from create import crear
+from read import consultar
+from update import modificar
+from delete import eliminar
 def main():
     a = True
     b = True
     i = 0
     e = 0
-    print("====================================================================================\n")
-    print("Hola, benvingut al menú de consultes de la taula *** amb la base de dades PostgreSQL! ")
+    print("====================================================================================")
+    print("Hola, benvingut al menú de consultes de la base de dades PostgreSQL! \n")
+    print("Primer s'ha de crear la taula! ")
     connection = connexio()
+    con_cursor = connection.cursor()
     
+    #bucle pel menu
     while a:
+        #Aquest 'if' només servirà per quan s'introdueix incorrectament les dades.
         if i != 0:
-            print("Si us plau, introdueix-hi correctament l'opció per poder accepdir al menú de consultes. ")
-            input1 = input("A quin menú vol accedir? ")
-        
+            print("Si us plau, introdueix-hi correctament l'opció per poder accedir al menú de consultes. ")
+            i = 0
+       
+
+        #Creació de la taula (Tot i que en aquest cas, com la taula ja esta creada, faré que si posas 'no' no es tanqui el menú, continui com si l'haguessis creada.)
         while b:
             if e == 0:
-                print("Primer s'ha de crear la taula!\n ")
-                input2 = input("Vols crear-la? [si] o [no] ")
+                input1 = input("Vols crear-la? [si] o [no] ")
                     
-                if input2 == "si":
-                    variable1 = crear(connection)
+                if input1 == "si":
+                    variable1 = crearTaula(connection, con_cursor)
                     b = False
                     print("Taula 'SINTETITZADORS' creada correctament! ")
                     e += 1
-                elif input2 == "no":
-                    print("Si no es crea la taula no és pot seguir! Adèu")
-                    a = False
+                elif input1 == "no":
+                    print("====================================================================================\n")
+                    print("Si no es crea la taula no és pot seguir! Adèu \n")
                     b = False
+                    e += 1
                 else:
                     print("====================================================================================\n")
                     print("Has de seleccionar 'si' o 'no'" )
-
+                    
+        print("Benvingut al menú principal! ")
+        print("---------------------------------------------- ")
+        print("Crear un nou element ========================> [1] ")
+        print("Consultar un element existent ===============> [2] ")
+        print("Modificar un element existent ===============> [3] ")
+        print("Borrar un element existent ==================> [4] ")
+        print("Sortir del programa =========================> [5] ")
+        input2 = input("Quina consulta desitja fer? ")
+        
+        if input2 == "1":
+            print("====================================================================================")
+            print("Has accedit al menú de creació! ")
+            creacio = crear(connection, con_cursor)
+        elif input2 == "2":
+            print("====================================================================================")
+            print("Has accedit al menú de consulta! ")
+            consulta = consultar(connection, con_cursor) 
+        elif input2 == "3":
+            print("====================================================================================")
+            print("Has accedit al menú de modificació! ")
+            update = modificar(connection, con_cursor)
+        elif input2 == "4":
+            print("====================================================================================")
+            print("Has accedit al menú de eliminar un element! ")
+            borrar = eliminar(connection, con_cursor)
+        elif input2 == "5":
+            con_cursor.close()
+            print("====================================================================================\n")
+            print("Gracies per consultar la base de dades! ")
+            break
+        else:
+            print("====================================================================================\n")
+            print("Has introduït incorrectament les dades. \n")
+            i += 1
+          
+        #Després dels mètodes, fem una consulta al client per si vol continuar o no.  
+        if input2 == "1" or input2 == "2" or input2 == "3" or input2 == "4":
+            while True:
+                input3 = input("Vols fer més consultes? [si] o [no] ")
+                if input3 == "si":
+                    break
+                    pass
+                elif input3 == "no":
+                    con_cursor.close()
+                    print("Gràcies per la visita! ")
+                    a = False
+                    break
+                else:
+                    print("Introdueix correctament la resposta ")
             
             
             
