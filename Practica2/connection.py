@@ -1,5 +1,6 @@
 import psycopg2
 
+#Connexió base de dades PostgreSQL
 def connexio():
     conn = psycopg2.connect(
         database="postgres",
@@ -8,6 +9,5 @@ def connexio():
         host='localhost',
         port='5432'
     )
-
-    #connection = conn.cursor()
+    #Retornem el conn, el cursor el crearem en la clase main. 
     return conn

@@ -1,6 +1,5 @@
-import psycopg2
-def crear(connection):
-    conn = connection.cursor()
+#Creació de la taula sintetitzador, si es fa la comprovació, diu que ja existeix. Li pasem la conexió i el cursor.
+def crearTaula(connection, con_cursor):
     sql = """CREATE TABLE SINTETITZADORS(
                 id SERIAL PRIMARY KEY,
                 nom VARCHAR(30) NOT NULL,
@@ -10,7 +9,6 @@ def crear(connection):
                 connexions VARCHAR(255) NOT NULL           
     )
     """
-    conn.execute(sql)
+    con_cursor.execute(sql)
     connection.commit()
-    conn.close()
     
