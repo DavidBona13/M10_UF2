@@ -1,4 +1,4 @@
-#Creació de la taula sintetitzador, si es fa la comprovació, diu que ja existeix. Li pasem la conexió i el cursor.
+#Creació de la taula sintetitzador, si es fa la comprovació, diu que ja existeix. Li passem la connexió i el cursor.
 def crearTaula(connection, con_cursor):
     sql = """CREATE TABLE SINTETITZADORS(
                 id SERIAL PRIMARY KEY,
