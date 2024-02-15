@@ -20,4 +20,7 @@
 
 # Instal·lació Odoo:
 
+El primer que farem és crear una carpeta **Odoo-16** dins de ***C:\***, acte seguit, des del **PowerShell** de windows entrem a la carpeta creada:
 
+
+Un cop estem dins afegirem la següent comanda per començar amb la instal·lació d'Odoo:
