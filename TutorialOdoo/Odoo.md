@@ -25,6 +25,14 @@ El primer que farem és crear una carpeta **Odoo-16** dins de ***'C:\'***,
 
  acte seguit, des del **PowerShell** de windows entrem a la carpeta creada:
 
-![foto 1](/TutorialOdoo/img/foto2.png)
+![foto 2](/TutorialOdoo/img/foto2.png)
 
 Un cop estem dins afegirem la següent comanda per començar amb la instal·lació d'Odoo:
+
+![foto 3](/TutorialOdoo/img/foto3.png)
+![foto 4](/TutorialOdoo/img/foto4.png)
+
+Comprovem quina versió de python tenim: (Si no tenim instal·lat python l'haurem d'instal·lar.)
+
+![foto 5](/TutorialOdoo/img/foto5.png)
+
