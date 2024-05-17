@@ -1,0 +1,8 @@
+[options]
+; This is the password that allows database operations:
+admin_passwd = david13pm00 
+db_host = False
+db_port = False
+db_user = david
+db_password = odoo13barcelona
+addons_path = /home/david/odoo/addons
