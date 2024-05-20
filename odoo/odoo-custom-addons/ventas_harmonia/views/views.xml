@@ -1,60 +1,60 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="ventas_harmonia.list">
-      <field name="name">ventas_harmonia list</field>
-      <field name="model">ventas_harmonia.ventas_harmonia</field>
+
+    <record id="ventas_harmonia.venta_list_view" model="ir.ui.view">
+      <field name="name">venta_harmonia_venta_list_view</field>
+      <field name="model">venta_harmonia.venta</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+        <form string="Venta">
+          <sheet>
+            <group>
+              <field name="nom"/>
+              <field name="producto_id" />
+              <field name="cantidad"/>
+              <field name="preu_unit"/>
+              <field name="preu_total"/>
+              <field name="date_venta"/>
+              <field name="client_id"/>
+              <field name="factura_id"/>
+            </group>
+            <footer>
+              <button name="crear_factura" type="object" string="Crear factura" class="btn-primary"/>
+            </footer>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--Llista de ventas-->
+    <record id="ventas_harmonia.venta_view_tree" model="ir.ui.view">
+      <field name="name">ventas_harmonia_venta_view_tree</field>
+      <field name="model">ventas_harmonia.venta</field>
+      <field name="arch" type="xml">
+        <tree string="Ventas">
+          <field name="nom"/>
+          <field name="producto_id" />
+          <field name="cantidad"/>
+          <field name="preu_total"/>
+          <field name="date_venta"/>
+          <field name="client_id"/>
+          <field name="factura_id"/>
         </tree>
       </field>
     </record>
--->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="ventas_harmonia.action_window">
-      <field name="name">ventas_harmonia window</field>
-      <field name="res_model">ventas_harmonia.ventas_harmonia</field>
+    <!--NOM-->
+    <menuitem id="ventas_harmonia.menu_root" name="Ventas" sequence="1"/>
+    
+    <!--MENU I SUBMENU-->
+    <menuitem id="ventas_harmonia.ventas_menu" name="Gestión de Ventas" parent="ventas_harmonia.menu_root" sequence="1"/>
+    <menuitem id="ventas_harmonia.ventas_menu_ventas" name="Ventas" parent="ventas_harmonia.ventas_menu" action="action_ventas" />
+
+    <!--ACTION-->
+    <record id="action_ventas" model="ir.actions.act.window">
+      <field name="name">Ventas</field>
+      <field name="res_model">ventas_harmonia.venta</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="ventas_harmonia.action_server">
-      <field name="name">ventas_harmonia server</field>
-      <field name="model_id" ref="model_ventas_harmonia_ventas_harmonia"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
-<!--
-    <menuitem name="ventas_harmonia" id="ventas_harmonia.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="ventas_harmonia.menu_1" parent="ventas_harmonia.menu_root"/>
-    <menuitem name="Menu 2" id="ventas_harmonia.menu_2" parent="ventas_harmonia.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="ventas_harmonia.menu_1_list" parent="ventas_harmonia.menu_1"
-              action="ventas_harmonia.action_window"/>
-    <menuitem name="Server to list" id="ventas_harmonia" parent="ventas_harmonia.menu_2"
-              action="ventas_harmonia.action_server"/>
--->
   </data>
 </odoo>

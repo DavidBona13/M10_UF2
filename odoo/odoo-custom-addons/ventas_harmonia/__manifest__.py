@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'ventas_harmonia', 'facturacion_harmonia'],
 
     # always loaded
     'data': [
@@ -32,4 +32,8 @@
     'demo': [
         'demo/demo.xml',
     ],
+
+    'installable': True,
+    'application': True,
 }
+
