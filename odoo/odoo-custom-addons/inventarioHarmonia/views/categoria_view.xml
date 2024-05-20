@@ -17,7 +17,7 @@
             <form string="Categoría de Inventario">
                 <sheet>
                     <group>
-                        <field name="nombre"/>
+                        <field name="nom"/>
                         <field name="descripcion"/>
                     </group>
                 </sheet>
