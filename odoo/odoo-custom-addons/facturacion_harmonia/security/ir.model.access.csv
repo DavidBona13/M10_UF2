@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_facturacion_harmonia_facturacion_harmonia,facturacion_harmonia.facturacion_harmonia,model_facturacion_harmonia_facturacion_harmonia,base.group_user,1,1,1,1
