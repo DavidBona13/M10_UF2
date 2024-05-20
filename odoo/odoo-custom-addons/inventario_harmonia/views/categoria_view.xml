@@ -1,0 +1,69 @@
+<odoo>
+   <data>
+        <!--Llista -->
+        <record id="view_categoria_list" model="ir.ui.view">
+            <field name="name">inventario_harmonia.categoria.list</field>
+            <field name="model">inventario_harmonia.categoria</field>
+            <field name="arch" type="xml">
+                <tree string="Categorías de Inventario">
+                    <field name="nom"/>
+                    <field name="descripcion"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--FORMULARI-->
+        <record id="view_categoria_form" model="ir.ui.view">
+            <field name="name">inventario_harmonia.categoria.form</field>
+            <field name="model">inventario_harmonia.categoria</field>
+            <field name="arch" type="xml">
+                <form string="Categoría de Inventario">
+                    <sheet>
+                        <group>
+                            <field name="nom"/>
+                            <field name="descripcion"/>
+                        </group>
+                        <!--ELS BOTONS VAN A SOBRE-->
+                        <footer>
+                            <button name="action_consultar_prodCat" type="object" string="Consultar Productos" class="btn-primary"/>
+                            <button name="action_cantidad_prod" type="object" string="Cantidad de Productos" class="btn-secondary"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--ACCIONS DELS BOTONS-->
+        <record id="action_consultar_prodCat" model="ir.actions.server">
+            <field name="name">Consultar Productos por Categoría</field>
+            <field name="model_id" ref="model_inventario_harmonia_categoria"/>
+            <field name="state">code</field>
+            <field name="code">action = model.consultar_prodCat(record.id)</field>
+        </record>
+
+        <record id="action_cantidad_prod" model="ir.actions.server">
+            <field name="name">Cantidad de Productos en Categoría</field>
+            <field name="model_id" ref="model_inventario_harmonia_categoria"/>
+            <field name="state">code</field>
+            <field name="code">action = model.cantidad_prod(record.id)</field>
+        </record>
+
+        <menuitem name="Categorías" id="inventario.menu_categoria" parent="inventario.menu_root" sequence="2"/> <!--MENU CATEGORIA-->
+
+        <menuitem name="Lista de categorías" id="inventario.menu_categoria_list" parent="inventario.menu_categoria" action="action_categoria_list"/> <!--SUBMENUS-->
+        <menuitem name="Crear categoría" id="inventario.menu_categoria_form" parent="inventario.menu_categoria" action="action_categoria_form"/>
+
+        <!-- ACCIONS DEL MENU -->
+        <record id="action_categoria_list" model="ir.actions.act_window">
+            <field name="name">Lista de categorías</field>
+            <field name="res_model">inventario_harmonia.categoria</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_categoria_form" model="ir.actions.act_window" >
+            <field name="name">Crear categoría</field>
+            <field name="res_model">inventario_harmonia.categoria</field>
+            <field name="view_mode">form</field>
+        </record>
+    </data> 
+</odoo>
