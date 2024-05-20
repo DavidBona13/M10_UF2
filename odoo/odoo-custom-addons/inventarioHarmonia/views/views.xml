@@ -1,8 +1,9 @@
 <odoo>
   <data>
+    <!-- LLISTA -->
     <record id="view_inventario_list" model="ir.ui.view">
-      <field name="name">inventario.inventario.list</field>
-      <field name="model">inventario.inventario</field>
+      <field name="name">inventarioHarmonia.inventario.list</field>
+      <field name="model">inventarioHarmonia.inventario</field>
       <field name="arch" type="xml">
         <tree string="Inventario">
           <field name="nom"/>
@@ -18,9 +19,10 @@
       </field>
     </record>
 
+    <!-- FORMULARI -->
     <record id="view_inventario_form" model="ir.ui.view">
-      <field name="name">inventario.inventario.form</field>
-      <field name="model">inventario.inventario</field>
+      <field name="name">inventarioHarmonia.inventario.form</field>
+      <field name="model">inventarioHarmonia.inventario</field>
       <field name="arch" type="xml">
           <form string="Inventario">
               <sheet>
@@ -37,17 +39,43 @@
                     <field name="fecha_caducidad"/>
                   </group>
                   <footer>
-                    <button name="crear_producto_button" type="object" string="Añadir Producto" class="btn-primary" attrs="{'invisible': [('id', '!=', False)]}"/>
-                    <button name="modificar_producto_btn" type="object" string="Guardar Cambios" class="btn-primary" attrs="{'invisible': [('id', '=', False)]}"/>
-                    <button name="reducir_cantidad_boton" type="object" string="Reducir Cantidad" class="btn-secondary"/>
+                    <button name="action_crear_producto" type="object" string="Añadir Producto" class="btn-primary"/>
+                    <button name="action_modificar_producto" type="object" string="Guardar Cambios" class="btn-primary"/>
+                    <button name="action_reducir_cantidad" type="object" string="Reducir Cantidad" class="btn-secondary"/>
                 </footer>
               </sheet>
           </form>
       </field>
-  </record>
+    </record>
 
-  <menuitem name="Inventario" id="inventario.menu_root"/>
-  
+    <!-- ACCIONS: 1ª crear un producte, 2ª modifica un producte, 3ª redueix quantitat d'un producte -->
+    <record id="action_crear_produco" model="ir.actions.server">
+      <field name="name">Crear Producto</field>
+      <field name="model_id" ref="model_inventarioHarmonia_inventario" />
+      <field name="state">code</field>
+      <field name="code">model.crear_producto()</field>
+    </record>
+
+
+    <record id="action_modificar_producto" model="ir.actions.server">
+      <field name="name">Modificar Producto</field>
+      <field name="model_id" ref="model_inventarioHarmonia_inventario" />
+      <field name="state">code</field>
+      <field name="code">model.modificar_producto_btn()</field>
+    </record>
+
+
+    <record id="action_reduir_cantidad" model="ir.actions.server">
+      <field name="name">Reducir Cantidad</field>
+      <field name="model_id" ref="model_inventarioHarmonia_inventario" />
+      <field name="state">code</field>
+      <field name="code">model.reduir_cantidad(cantidad_red)</field>
+    </record>
+
+
+    <menuitem name="Inventario" id="inventario.menu_root"/>
+
+
     <!-- explicit list view definition -->
 <!--
     <record model="ir.ui.view" id="inventario.list">

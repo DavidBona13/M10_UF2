@@ -36,56 +36,51 @@ class Inventario(models.Model):
 #    fecha = fields.Date(string="Fecha", default=fields.Date.today, required=True)
 
 
-@api.model
-def crear_producto(self, nom, descripcion, categoria_id, cantidad, precio, precio_venta, marca, categoria, obj_perdut, fecha_caducidad):
-    producto = self.create({
-        'nombre': nom,
-        'description': descripcion,
-        'categoria_id': categoria_id,
-        'cantidad': cantidad,
-        'precio': precio,
-        'precio_venta': precio_venta,
-        'marca': marca,
-        'categoria': categoria,
-        'obj_perdut': obj_perdut,
-        'fecha_caducidad': fecha_caducidad,
-    })
-    return producto
+    @api.model
+    def crear_producto(self, valors):
+        return self.create(valors)
 
-def crear_producto_button(self):
-        self.crear_producto({
-            self.nom,
-            self.descripcion,
-            self.categoria_id.id,
-            self.cantidad,
-            self.precio,
-            self.precio_venta,
-            self.marca,
-            self.categoria,
-            self.obj_perdut,
-            self.fecha_caducidad
+    @api.multi
+    def modificar_producto_btn(self):
+        self.write({
+            'nom': self.nom,
+            'descripcion': self.descripcion,
+            'categoria_id': self.categoria_id.id,
+            'cantidad': self.cantidad,
+            'precio': self.precio,
+            'precio_venta': self.precio_venta,
+            'marca': self.marca,
+            'categoria': self.categoria,
+            'obj_perdut': self.obj_perdut,
+            'fecha_caducidad': self.fecha_caducidad,
+
         })
 
-def modificar_producto_btn(self):
-     self.write({
-          'nom': self.nom,
-          'descripcion': self.descripcion,
-          'categoria_id': self.categoria_id.id,
-          'cantidad': self.cantidad,
-          'precio': self.precio,
-          'precio_venta': self.precio_venta,
-          'marca': self.marca,
-          'categoria': self.categoria,
-          'obj_perdut': self.obj_perdut,
-          'fecha_caducidad': self.fecha_caducidad,
+    @api.model
+    def afegir_prod(self, afegit):
+        self.write({'cantidad': self.cantidad + afegit})
 
-     })
+    @api.multi
+    def reduir_cantidad(self, cantidad_red):
+        if cantidad_red > self.cantidad:
+            raise ValueError("Cantidad disponible insuficiente")
+        else:
+            self.cantidad -= cantidad_red
 
-def reduir_cantidad(self, cantidad_red):
-    if cantidad_red > self.cantidad:
-        raise ValueError("Cantidad disponible insuficiente")
-    else:
-        self.cantidad -= cantidad_red
+    @api.model
+    def vendre_prod(self, quantitat):
+        if quantitat > self.cantidad:
+            raise ValueError ("Cantidad insuficiente")
+        else:
+            self.write({'cantidad': self.cantidad - quantitat})
+
+    @api.model
+    def consultar_prod(self, nom_prod):
+        producto = self.search([('nom', '=', nom_prod)])
+        return producto
+    
+
+
 # class inventario(models.Model):
 #     _name = 'inventario.inventario'
 #     _description = 'inventario.inventario'
