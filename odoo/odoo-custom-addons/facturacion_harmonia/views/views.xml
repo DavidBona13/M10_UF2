@@ -1,60 +1,56 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="facturacion_harmonia.list">
-      <field name="name">facturacionHarmonia list</field>
-      <field name="model">facturacion_harmonia.facturacion_harmonia</field>
+    <record id="facturacion_harmonia_facturacio_view_form" model="ir.ui.view">
+      <field name="name">facturacion_harmonia.facturacio.form</field>
+      <field name="model">facturacion_harmonia.facturacio</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
+        <form string="Factura">
+          <sheet>
+            <group>
+              <field name="nom" />
+              <field name="client_id" />
+              <field name="date_factura" />
+              <field name="total"/>
+            </group>
+            <field name="lineas_factura">
+              <tree string="Líneas de Factura">
+                <field name="producto_id" />
+                <field name="cantidad" />
+                <field name="preu_unit" />
+                <field name="subtotal" />
+              </tree>
+            </field>
+          </sheet>
+        </form>
       </field>
     </record>
--->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="facturacion_harmonia.action_window">
-      <field name="name">facturacionHarmonia window</field>
-      <field name="res_model">facturacion_harmonia.facturacion_harmonia</field>
+    <!--LLISTA DE FACTURES-->
+    <record id="facturacion_harmonia_facturacio_view_tree" model="ir.ui.view">
+      <field name="name">facturacion_harmonia.facturacio.tree</field>
+      <field name="model">facturacion_harmonia.facturacio</field>
+      <field name="arch" type="xml">
+          <tree string="Facturas">
+              <field name="nom"/>
+              <field name="client_id"/>
+              <field name="date_factura"/>
+              <field name="total" />
+          </tree>
+      </field>
+  </record>
+
+
+  <menuitem id="facturacion_harmonia.menu_root" name="Facturación" />
+
+    <!--MENU I SUBMENU-->
+  <menuitem id="facturacion_harmonia_menu_facturacio" name="Gestión de Facturación" parent="facturacion_harmonia.menu_root" sequence="1"/>
+  <menuitem id="menu_facturacion_harmonia_facturas" name="Facturas" parent="facturacion_harmonia_menu_facturacio" action="action_factures"/>
+
+  <record id="action_factures" model="ir.actions.act_window">
+      <field name="name">Facturas</field>
+      <field name="res_model">facturacion_harmonia.facturacio</field>
       <field name="view_mode">tree,form</field>
-    </record>
--->
+  </record>
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="facturacion_harmonia.action_server">
-      <field name="name">facturacionHarmonia server</field>
-      <field name="model_id" ref="model_facturacion_harmonia_facturacion_harmonia"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
-    </record>
--->
-
-    <!-- Top menu item -->
-<!--
-    <menuitem name="facturacionHarmonia" id="facturacion_harmonia.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="facturacion_harmonia.menu_1" parent="facturacion_harmonia.menu_root"/>
-    <menuitem name="Menu 2" id="facturacion_harmonia.menu_2" parent="facturacion_harmonia.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="facturacion_harmonia.menu_1_list" parent="facturacion_harmonia.menu_1"
-              action="facturacion_harmonia.action_window"/>
-    <menuitem name="Server to list" id="facturacion_harmonia" parent="facturacion_harmonia.menu_2"
-              action="facturacion_harmonia.action_server"/>
--->
   </data>
 </odoo>

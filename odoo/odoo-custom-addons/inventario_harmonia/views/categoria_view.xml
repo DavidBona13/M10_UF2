@@ -1,8 +1,8 @@
 <odoo>
    <data>
         <!--Llista -->
-        <record id="view_categoria_list" model="ir.ui.view">
-            <field name="name">inventario_harmonia.categoria.list</field>
+        <record id="inventario_harmonia.categoria_list_view" model="ir.ui.view">
+            <field name="name">inventario_harmonia_categoria_list_view</field>
             <field name="model">inventario_harmonia.categoria</field>
             <field name="arch" type="xml">
                 <tree string="Categorías de Inventario">
@@ -13,8 +13,8 @@
         </record>
 
         <!--FORMULARI-->
-        <record id="view_categoria_form" model="ir.ui.view">
-            <field name="name">inventario_harmonia.categoria.form</field>
+        <record id="inventario_harmonia.categoria_view_form" model="ir.ui.view">
+            <field name="name">inventario_harmonia_ategoria_view_form</field>
             <field name="model">inventario_harmonia.categoria</field>
             <field name="arch" type="xml">
                 <form string="Categoría de Inventario">
@@ -48,10 +48,10 @@
             <field name="code">action = model.cantidad_prod(record.id)</field>
         </record>
 
-        <menuitem name="Categorías" id="inventario.menu_categoria" parent="inventario.menu_root" sequence="2"/> <!--MENU CATEGORIA-->
+        <menuitem name="Categorías" id="inventario_harmonia.menu_categoria" parent="inventario_harmonia.menu_root" sequence="2"/> <!--MENU CATEGORIA-->
 
-        <menuitem name="Lista de categorías" id="inventario.menu_categoria_list" parent="inventario.menu_categoria" action="action_categoria_list"/> <!--SUBMENUS-->
-        <menuitem name="Crear categoría" id="inventario.menu_categoria_form" parent="inventario.menu_categoria" action="action_categoria_form"/>
+        <menuitem name="Lista de categorías" id="inventario_harmonia.menu_categoria_list" parent="inventario_harmonia.menu_categoria" action="action_categoria_list"/> <!--SUBMENUS-->
+        <menuitem name="Crear categoría" id="inventario_harmonia.menu_categoria_form" parent="inventario_harmonia.menu_categoria" action="action_categoria_form"/>
 
         <!-- ACCIONS DEL MENU -->
         <record id="action_categoria_list" model="ir.actions.act_window">

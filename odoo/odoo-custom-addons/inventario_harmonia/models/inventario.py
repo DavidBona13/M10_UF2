@@ -19,23 +19,6 @@ class Inventario(models.Model):
     obj_perdut = fields.Boolean(string="Objeto perdido", default=False)
     fecha_caducidad = fields.Date(string='Fecha de Caducidad')
 
-
-    
-
-#class FacturacionInventario(models.Model):
-#    _name = 'inventario.facturacion'
-#    _description = 'Facturación de los objetos que se almacenan (compras o ventas)'
-
-#    id_facturaInv = fields.Integer(string="ID Factura Inventario")
-#    titulo = fields.Char(string="Título", required=True)
-#    desc_factInv = fields.Text(string="Descripción", required=True)
-#    id_cliente = fields.Many2one('res.partner', string="Cliente", required=True) 
-#    id_inventario = fields.Many2one('inventario.inventario', string="Producto", required=True)  
-#    precio_ventaFact = fields.Float(string="Precio", required=True)
-#    cantidadFact = fields.Integer(string="Cantidad", required=True, default=0)
-#    fecha = fields.Date(string="Fecha", default=fields.Date.today, required=True)
-
-
     @api.model
     def crear_producto(self, valors):
         return self.create(valors)
@@ -79,6 +62,25 @@ class Inventario(models.Model):
         producto = self.search([('nom', '=', nom_prod)])
         return producto
     
+
+
+
+    
+
+#class FacturacionInventario(models.Model):
+#    _name = 'inventario.facturacion'
+#    _description = 'Facturación de los objetos que se almacenan (compras o ventas)'
+
+#    id_facturaInv = fields.Integer(string="ID Factura Inventario")
+#    titulo = fields.Char(string="Título", required=True)
+#    desc_factInv = fields.Text(string="Descripción", required=True)
+#    id_cliente = fields.Many2one('res.partner', string="Cliente", required=True) 
+#    id_inventario = fields.Many2one('inventario.inventario', string="Producto", required=True)  
+#    precio_ventaFact = fields.Float(string="Precio", required=True)
+#    cantidadFact = fields.Integer(string="Cantidad", required=True, default=0)
+#    fecha = fields.Date(string="Fecha", default=fields.Date.today, required=True)
+
+
 
 
 # class inventario(models.Model):

@@ -6,8 +6,8 @@
     <include file="categoria_view.xml"></include>
 
     <!-- LLISTA -->
-    <record id="view_inventario_list" model="ir.ui.view">
-      <field name="name">inventario_harmonia.inventario.list</field>
+    <record model="ir.ui.view" id="inventario_harmonia.inventario_list_view">
+      <field name="name">inventario_harmonia_inventario_view_list</field>
       <field name="model">inventario_harmonia.inventario</field>
       <field name="arch" type="xml">
         <tree string="Inventario">
@@ -25,8 +25,8 @@
     </record>
 
     <!-- FORMULARI -->
-    <record id="view_inventario_form" model="ir.ui.view">
-      <field name="name">inventario_harmonia.inventario.form</field>
+    <record model="ir.ui.view" id="nventario_harmonia.inventario_view_form">
+      <field name="name">inventario_harmonia_inventario_view_form</field>
       <field name="model">inventario_harmonia.inventario</field>
       <field name="arch" type="xml">
           <form string="Inventario">
@@ -79,12 +79,12 @@
     </record>
 
 
-    <menuitem name="Inventario" id="inventario.menu_root"/> <!--MENU BASE-->
+    <menuitem name="Inventario" id="inventario_harmonia.menu_root"/> <!--MENU BASE-->
 
-    <menuitem name="Productos" id="inventario.menu_producto" parent="inventario.menu_root" sequence="1"/> <!--MENU PRODUCTOS-->
+    <menuitem name="Productos" id="inventario_harmonia.menu_producto" parent="inventario_harmonia.menu_root" sequence="1"/> <!--MENU PRODUCTOS-->
 
-    <menuitem name="Lista de Productos" id="inventario.menu_producto_list" parent="inventario.menu_producto" action="action_inventario_list"/><!--SUBMENUS-->
-    <menuitem name="Crear Producto" id="inventario.menu_producto_form" parent="inventario.menu_producto" action="action_inventario_form"/>
+    <menuitem name="Lista de Productos" id="inventario_harmonia.menu_producto_list" parent="inventario_harmonia.menu_producto" action="action_inventario_list"/><!--SUBMENUS-->
+    <menuitem name="Crear Producto" id="inventario_harmonia.menu_producto_form" parent="inventario_harmonia.menu_producto" action="action_inventario_form"/>
 
     <!--ACTIONS DEL MENU-->
     <record id="action_inventario_list" model="ir.actions.act_window">
