@@ -38,14 +38,14 @@
             <field name="name">Consultar Productos por Categoría</field>
             <field name="model_id" ref="model_inventario_harmonia_categoria"/>
             <field name="state">code</field>
-            <field name="code">action = model.consultar_prodCat(record.id)</field>
+            <field name="code">action = model.consultar_prodCat()</field>
         </record>
 
         <record id="action_cantidad_prod" model="ir.actions.server">
             <field name="name">Cantidad de Productos en Categoría</field>
             <field name="model_id" ref="model_inventario_harmonia_categoria"/>
             <field name="state">code</field>
-            <field name="code">action = model.cantidad_prod(record.id)</field>
+            <field name="code">action = model.cantidad_prod()</field>
         </record>
 
         <menuitem name="Categorías" id="inventario_harmonia.menu_categoria" parent="inventario_harmonia.menu_root" sequence="2"/> <!--MENU CATEGORIA-->
