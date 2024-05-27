@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+from odoo.exceptions import ValidationError
 
+from xml.dom import ValidationErr
 from odoo import models, fields, api
 
 
@@ -23,7 +25,6 @@ class Inventario(models.Model):
     def crear_producto(self, valors):
         return self.create(valors)
 
-    @api.multi
     def modificar_producto_btn(self):
         self.write({
             'nom': self.nom,
@@ -38,25 +39,28 @@ class Inventario(models.Model):
             'fecha_caducidad': self.fecha_caducidad,
 
         })
+    
 
-    @api.model
     def afegir_prod(self, afegit):
-        self.write({'cantidad': self.cantidad + afegit})
+        for record in self:
+            record.write({'cantidad': record.cantidad + afegit})
 
-    @api.multi
     def reduir_cantidad(self, cantidad_red):
-        if cantidad_red > self.cantidad:
-            raise ValueError("Cantidad disponible insuficiente")
-        else:
-            self.cantidad -= cantidad_red
+        for record in self:
+            if cantidad_red > record.cantidad:
+                raise ValidationError("Cantidad disponible insuficiente")
+            else:
+                record.cantidad -= cantidad_red
 
-    @api.model
+
     def vendre_prod(self, quantitat):
-        if quantitat > self.cantidad:
-            raise ValueError ("Cantidad insuficiente")
-        else:
-            self.write({'cantidad': self.cantidad - quantitat})
+        for record in self:
+            if quantitat > record.cantidad:
+                raise ValidationError("Cantidad insuficiente")
+            else:
+                record.write({'cantidad': record.cantidad - quantitat})
 
+                
     @api.model
     def consultar_prod(self, nom_prod):
         producto = self.search([('nom', '=', nom_prod)])
