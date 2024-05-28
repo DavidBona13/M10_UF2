@@ -2,6 +2,7 @@
 
 from odoo import models, fields, api
 
+#Factura general, conté tot el compra un client.
 class Facturacio(models.Model):
     _name = 'facturacion_harmonia.facturacio'
     _description = 'Facturas Hotel Harmonia'
@@ -17,7 +18,7 @@ class Facturacio(models.Model):
         for factura in self:
             factura.total = sum(li.subtotal for li in factura.linia_factura)
 
-
+#Petites facturas de cada element que compra el client.
 class LineaFactura(models.Model):
     _name = 'facturacion_harmonia.lineafactura'
     _description = 'Línea de factura Harmonia'
