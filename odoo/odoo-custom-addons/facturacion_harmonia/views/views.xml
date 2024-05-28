@@ -43,7 +43,7 @@
   <menuitem id="facturacion_harmonia.menu_root" name="Facturación" />
 
     <!--MENU I SUBMENU-->
-  <menuitem id="facturacion_harmonia_menu_facturacio" name="Gestión de Facturación" parent="facturacion_harmonia.menu_root" sequence="1"/>
+  <menuitem id="facturacion_harmonia_menu_facturacio" name="Gestión de Facturación" parent="facturacion_harmonia.menu_root"/>
   <menuitem id="menu_facturacion_harmonia_facturas" name="Facturas" parent="facturacion_harmonia_menu_facturacio" action="action_factures"/>
 
   <record id="action_factures" model="ir.actions.act_window">

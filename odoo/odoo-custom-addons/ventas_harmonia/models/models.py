@@ -21,8 +21,9 @@ class Venta (models.Modele):
         for venta in self:
             venta.preu_total = venta.cantidad * venta.preu_unit
 
-    #'Creació de factures'
+    #Creació de factures, és relaciona amb el model de facturació importat en el manifest.
     def crear_factura(self):
+        #Environment, permet interectua amb la bases de dades i amb altres models.
         factura = self.env['facturacion_harmonia.factura'].create({
             'venta_id': self.id,
             'client_id': self.client_id.id,

@@ -43,39 +43,15 @@
                     <field name="obj_perdut" />
                     <field name="fecha_caducidad"/>
                   </group>
-                  <!--ELS BUTONS VAN A SOBRE I DINS DEL FORMULARI-->
+                  <!--ELS BUTONS DINS DEL FORMULARI-->
                   <footer>
-                    <button name="action_crear_producto" type="object" string="Añadir Producto" class="btn-primary"/>
-                    <button name="action_modificar_producto" type="object" string="Guardar Cambios" class="btn-primary"/>
-                    <button name="action_reducir_cantidad" type="object" string="Reducir Cantidad" class="btn-secondary"/>
+                    <button name="crear_producto" type="object" string="Añadir Producto" class="btn-primary"/>
+                    <button name="modificar_producto" type="object" string="Guardar Cambios" class="btn-primary"/>
+                    <button name="reducir_cantidad" type="object" string="Reducir Cantidad" class="btn-secondary"/>
                 </footer>
               </sheet>
           </form>
       </field>
-    </record>
-
-    <!-- ACCIONS: 1ª crear un producte, 2ª modifica un producte, 3ª redueix quantitat d'un producte -->
-    <record id="action_crear_producto" model="ir.actions.server">
-      <field name="name">Crear Producto</field>
-      <field name="model_id" ref="model_inventario_harmonia_inventario" />
-      <field name="state">code</field>
-      <field name="code">model.crear_producto()</field>
-    </record>
-
-
-    <record id="action_modificar_producto" model="ir.actions.server">
-      <field name="name">Modificar Producto</field>
-      <field name="model_id" ref="model_inventario_harmonia_inventario" />
-      <field name="state">code</field>
-      <field name="code">model.modificar_producto_btn()</field>
-    </record>
-
-
-    <record id="action_reduir_cantidad" model="ir.actions.server">
-      <field name="name">Reducir Cantidad</field>
-      <field name="model_id" ref="model_inventario_harmonia_inventario" />
-      <field name="state">code</field>
-      <field name="code">model.reduir_cantidad(cantidad_red)</field>
     </record>
 
 

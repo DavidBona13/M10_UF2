@@ -21,11 +21,23 @@ class Inventario(models.Model):
     obj_perdut = fields.Boolean(string="Objeto perdido", default=False)
     fecha_caducidad = fields.Date(string='Fecha de Caducidad')
 
-    @api.model
-    def crear_producto(self, valors):
+
+    def crear_producto(self):
+        valors = {
+            'nom': self.nom,  
+            'descripcion': self._description,
+            'categoria_id': self.categoria_id,
+            'cantidad': self.cantidad,
+            'precio': self.precio,
+            'precio_venta': self.precio_venta,
+            'marca': self.marca,
+            'categoria': self.categoria,
+            'obj_perdut': self.obj_perdut,
+            'fecha_caducidad': fields.Date.today(),
+        }
         return self.create(valors)
 
-    def modificar_producto_btn(self):
+    def modificar_producto(self):
         self.write({
             'nom': self.nom,
             'descripcion': self.descripcion,
@@ -61,7 +73,6 @@ class Inventario(models.Model):
                 record.write({'cantidad': record.cantidad - quantitat})
 
                 
-    @api.model
     def consultar_prod(self, nom_prod):
         producto = self.search([('nom', '=', nom_prod)])
         return producto

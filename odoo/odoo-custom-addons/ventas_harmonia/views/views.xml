@@ -43,10 +43,10 @@
     </record>
 
     <!--NOM-->
-    <menuitem id="ventas_harmonia.menu_root" name="Ventas" sequence="1"/>
+    <menuitem id="ventas_harmonia.menu_root" name="Ventas" />
     
     <!--MENU I SUBMENU-->
-    <menuitem id="ventas_harmonia.ventas_menu" name="Gestión de Ventas" parent="ventas_harmonia.menu_root" sequence="1"/>
+    <menuitem id="ventas_harmonia.ventas_menu" name="Gestión de Ventas" parent="ventas_harmonia.menu_root" />
     <menuitem id="ventas_harmonia.ventas_menu_ventas" name="Ventas" parent="ventas_harmonia.ventas_menu" action="action_ventas" />
 
     <!--ACTION-->
